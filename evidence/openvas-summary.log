@@ -1,0 +1,14 @@
+Task: linux-target-initial-scan
+Target: linux-target
+Host: 192.168.175.30
+Status: Done
+Ports detected: 22/tcp, general/tcp, general/icmp
+Applications detected: 1
+Operating systems detected: 1
+Results before filtering: 16
+Results shown in report: 3
+Severity (filtered): 2.6
+Findings:
+- Weak MAC Algorithm(s) Supported (SSH)
+- TCP Timestamps Information Disclosure
+- ICMP Timestamp Reply Information Disclosure

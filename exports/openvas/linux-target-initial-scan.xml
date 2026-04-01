@@ -1,0 +1,1631 @@
+<report content_type="text/xml" extension="xml" id="01ca4022-27bb-4fed-b4b0-aad2ddfb95b7" format_id="5057e5cc-b825-11e4-9d0e-28d24461215b" config_id="">
+<owner><name>admin</name></owner><name>2026-03-29T21:56:12Z</name><comment></comment><creation_time>2026-03-29T21:56:12Z</creation_time><modification_time>2026-03-29T21:58:51Z</modification_time><writable>0</writable><in_use>0</in_use><task id="9fcf01de-98ff-4fea-9520-9cdd5053e3fd"></task><report_format id="5057e5cc-b825-11e4-9d0e-28d24461215b"><name>Anonymous XML</name></report_format><report id="01ca4022-27bb-4fed-b4b0-aad2ddfb95b7">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+<gmp>
+    
+  <version>22.7</version></gmp><sort>
+    
+  <field>severity<order>descending</order></field></sort><filters id="0">
+    
+    
+    
+    
+    
+    
+  <term>apply_overrides=0 levels=chml rows=1000 min_qod=70 first=1 sort-reverse=severity result_hosts_only=0 notes=1 overrides=1</term><filter>Critical</filter><filter>High</filter><filter>Medium</filter><filter>Low</filter><keywords>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <keyword>
+        
+        
+        
+      <column>apply_overrides</column><relation>=</relation><value>0</value></keyword><keyword>
+        
+        
+        
+      <column>levels</column><relation>=</relation><value>chml</value></keyword><keyword>
+        
+        
+        
+      <column>rows</column><relation>=</relation><value>1000</value></keyword><keyword>
+        
+        
+        
+      <column>min_qod</column><relation>=</relation><value>70</value></keyword><keyword>
+        
+        
+        
+      <column>first</column><relation>=</relation><value>1</value></keyword><keyword>
+        
+        
+        
+      <column>sort-reverse</column><relation>=</relation><value>severity</value></keyword><keyword>
+        
+        
+        
+      <column>result_hosts_only</column><relation>=</relation><value>0</value></keyword><keyword>
+        
+        
+        
+      <column>notes</column><relation>=</relation><value>1</value></keyword><keyword>
+        
+        
+        
+      <column>overrides</column><relation>=</relation><value>1</value></keyword></keywords></filters><scan_run_status>Done</scan_run_status><hosts>
+    
+  <count>1</count></hosts><closed_cves>
+    
+  <count>0</count></closed_cves><vulns>
+    
+  <count>16</count></vulns><os>
+    
+  <count>1</count></os><apps>
+    
+  <count>1</count></apps><ssl_certs>
+    
+  <count>0</count></ssl_certs><task id="9fcf01de-98ff-4fea-9520-9cdd5053e3fd">
+    
+    
+    
+  <comment></comment><target id="11c2ac6a-252b-422e-9dfd-28bb8c10aadc">
+      
+      
+      
+    <trash>0</trash><name>linux-target</name><comment></comment></target><progress>100</progress></task><timestamp>2026-03-29T21:56:12Z</timestamp><scan_start>2026-03-29T21:56:24Z</scan_start><timezone>Coordinated Universal Time</timezone><timezone_abbrev>UTC</timezone_abbrev><ports max="1000" start="1">
+    
+    
+    
+    
+  <count>2</count><port>general/icmp<host>127.0.0.1</host><severity>2.1</severity><threat>Low</threat></port><port>22/tcp<host>127.0.0.1</host><severity>2.6</severity><threat>Low</threat></port><port>general/tcp<host>127.0.0.1</host><severity>2.6</severity><threat>Low</threat></port></ports><results max="1000" start="1">
+    
+    
+    
+  <result id="037897ee-1ba1-4dfe-ab0c-97baa31d4963">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <name>TCP Timestamps Information Disclosure</name><modification_time>2026-03-29T21:57:15Z</modification_time><comment></comment><creation_time>2026-03-29T21:57:15Z</creation_time><host>127.0.0.1<asset asset_id="89b6eb37-4091-40f6-b0fb-7fe056b8db7f"></asset><hostname></hostname></host><port>general/tcp</port><nvt oid="1.3.6.1.4.1.25623.1.0.80091">
+        
+        
+        
+        
+        
+        
+        
+        
+      <type>nvt</type><name>TCP Timestamps Information Disclosure</name><family>General</family><cvss_base>2.6</cvss_base><severities score="2.6">
+          
+        <severity type="cvss_base_v2">
+            
+            
+            
+            
+          <origin></origin><date>2008-10-24T21:33:44Z</date><score>2.6</score><value>AV:N/AC:H/Au:N/C:P/I:N/A:N</value></severity></severities><tags>cvss_base_vector=AV:N/AC:H/Au:N/C:P/I:N/A:N|summary=The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.|insight=The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.|affected=TCP implementations that implement RFC1323/RFC7323.|impact=A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.|solution=To disable TCP timestamps on linux add the line
+  &apos;net.ipv4.tcp_timestamps = 0&apos; to /etc/sysctl.conf. Execute &apos;sysctl -p&apos; to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute &apos;netsh int tcp set global timestamps=disabled&apos;
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.|vuldetect=Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.|solution_type=Mitigation</tags><solution type="Mitigation">To disable TCP timestamps on linux add the line
+  &apos;net.ipv4.tcp_timestamps = 0&apos; to /etc/sysctl.conf. Execute &apos;sysctl -p&apos; to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute &apos;netsh int tcp set global timestamps=disabled&apos;
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.</solution><refs>
+          
+          
+          
+          
+        <ref type="url" id="https://datatracker.ietf.org/doc/html/rfc1323"></ref><ref type="url" id="https://datatracker.ietf.org/doc/html/rfc7323"></ref><ref type="url" id="https://web.archive.org/web/20151213072445/http://www.microsoft.com/en-us/download/details.aspx?id=9152"></ref><ref type="url" id="https://www.fortiguard.com/psirt/FG-IR-16-090"></ref></refs></nvt><scan_nvt_version>2023-12-15T16:10:08Z</scan_nvt_version><threat>Low</threat><severity>2.6</severity><qod>
+        
+        
+      <value>80</value><type></type></qod><original_threat>Low</original_threat><original_severity>2.6</original_severity><compliance>undefined</compliance></result><result id="dbb1bc6d-cffb-4b16-b368-0cd5afc41adb">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <name>Weak MAC Algorithm(s) Supported (SSH)</name><modification_time>2026-03-29T21:57:25Z</modification_time><comment></comment><creation_time>2026-03-29T21:57:25Z</creation_time><detection>
+        
+      <result id="4eaeca0f-4421-459c-8275-d856ce4c599a">
+          
+        <details>
+            
+            
+            
+            
+          <detail>
+              
+              
+            <name>product</name><value>cpe:/a:ietf:secure_shell_protocol</value></detail><detail>
+              
+              
+            <name>location</name><value>22/tcp</value></detail><detail>
+              
+              
+            <name>source_oid</name><value>1.3.6.1.4.1.25623.1.0.105565</value></detail><detail>
+              
+              
+            <name>source_name</name><value>SSH Protocol Algorithms Supported</value></detail></details></result></detection><host>127.0.0.1<asset asset_id="89b6eb37-4091-40f6-b0fb-7fe056b8db7f"></asset><hostname></hostname></host><port>22/tcp</port><nvt oid="1.3.6.1.4.1.25623.1.0.105610">
+        
+        
+        
+        
+        
+        
+        
+        
+      <type>nvt</type><name>Weak MAC Algorithm(s) Supported (SSH)</name><family>SSL and TLS</family><cvss_base>2.6</cvss_base><severities score="2.6">
+          
+        <severity type="cvss_base_v2">
+            
+            
+            
+            
+          <origin></origin><date>2016-04-19T09:49:32Z</date><score>2.6</score><value>AV:N/AC:H/Au:N/C:P/I:N/A:N</value></severity></severities><tags>cvss_base_vector=AV:N/AC:H/Au:N/C:P/I:N/A:N|summary=The remote SSH server is configured to allow / support weak MAC
+  algorithm(s).|insight=|affected=|impact=|solution=Disable the reported weak MAC algorithm(s).|vuldetect=Checks the supported MAC algorithms (client-to-server and
+  server-to-client) of the remote SSH server.
+
+  Currently weak MAC algorithms are defined as the following:
+
+  - MD5 based algorithms
+
+  - 96-bit based algorithms
+
+  - 64-bit based algorithms
+
+  - &apos;none&apos; algorithm|solution_type=Mitigation</tags><solution type="Mitigation">Disable the reported weak MAC algorithm(s).</solution><refs>
+          
+          
+        <ref type="url" id="https://www.rfc-editor.org/rfc/rfc6668"></ref><ref type="url" id="https://www.rfc-editor.org/rfc/rfc4253#section-6.4"></ref></refs></nvt><scan_nvt_version>2024-06-14T05:05:48Z</scan_nvt_version><threat>Low</threat><severity>2.6</severity><qod>
+        
+        
+      <value>80</value><type></type></qod><original_threat>Low</original_threat><original_severity>2.6</original_severity><compliance>undefined</compliance></result><result id="ad9066e8-3e03-41bf-a20e-1ebb6bb79fc9">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <name>ICMP Timestamp Reply Information Disclosure</name><modification_time>2026-03-29T21:57:15Z</modification_time><comment></comment><creation_time>2026-03-29T21:57:15Z</creation_time><host>127.0.0.1<asset asset_id="89b6eb37-4091-40f6-b0fb-7fe056b8db7f"></asset><hostname></hostname></host><port>general/icmp</port><nvt oid="1.3.6.1.4.1.25623.1.0.103190">
+        
+        
+        
+        
+        
+        
+        
+        
+      <type>nvt</type><name>ICMP Timestamp Reply Information Disclosure</name><family>General</family><cvss_base>2.1</cvss_base><severities score="2.1">
+          
+        <severity type="cvss_base_v2">
+            
+            
+            
+            
+          <origin></origin><date>2011-07-15T11:32:07Z</date><score>2.1</score><value>AV:L/AC:L/Au:N/C:P/I:N/A:N</value></severity></severities><tags>cvss_base_vector=AV:L/AC:L/Au:N/C:P/I:N/A:N|summary=The remote host responded to an ICMP timestamp request.|insight=The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.|affected=|impact=This information could theoretically be used to exploit weak
+  time-based random number generators in other services.|solution=Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)|vuldetect=Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.|solution_type=Mitigation</tags><solution type="Mitigation">Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)</solution><refs>
+          
+          
+          
+          
+          
+          
+        <ref type="cve" id="CVE-1999-0524"></ref><ref type="url" id="https://datatracker.ietf.org/doc/html/rfc792"></ref><ref type="url" id="https://datatracker.ietf.org/doc/html/rfc2780"></ref><ref type="cert-bund" id="CB-K15/1514"></ref><ref type="cert-bund" id="CB-K14/0632"></ref><ref type="dfn-cert" id="DFN-CERT-2014-0658"></ref></refs></nvt><scan_nvt_version>2025-01-21T05:37:33Z</scan_nvt_version><threat>Low</threat><severity>2.1</severity><qod>
+        
+        
+      <value>80</value><type></type></qod><original_threat>Low</original_threat><original_severity>2.1</original_severity><compliance>undefined</compliance></result></results><result_count>16<full>16</full><filtered>3</filtered><critical><full>0</full><filtered>0</filtered></critical><hole deprecated="1"><full>0</full><filtered>0</filtered></hole><high><full>0</full><filtered>0</filtered></high><info deprecated="1"><full>4</full><filtered>3</filtered></info><low><full>4</full><filtered>3</filtered></low><log><full>10</full><filtered>0</filtered></log><warning deprecated="1"><full>2</full><filtered>0</filtered></warning><medium><full>2</full><filtered>0</filtered></medium><false_positive><full>0</full><filtered>0</filtered></false_positive></result_count><severity>
+    
+    
+  <full>5.9</full><filtered>2.6</filtered></severity><host>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  <ip>127.0.0.1</ip><asset asset_id="89b6eb37-4091-40f6-b0fb-7fe056b8db7f"></asset><start>2026-03-29T21:56:45Z</start><end>2026-03-29T21:58:47Z</end><port_count>
+      
+    <page>1</page></port_count><result_count>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <page>3</page><critical>
+        
+      <page>0</page></critical><hole deprecated="1">
+        
+      <page>0</page></hole><high>
+        
+      <page>0</page></high><warning deprecated="1">
+        
+      <page>0</page></warning><medium>
+        
+      <page>0</page></medium><info deprecated="1">
+        
+      <page>3</page></info><low>
+        
+      <page>3</page></low><log>
+        
+      <page>0</page></log><false_positive>
+        
+      <page>0</page></false_positive></result_count><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150639</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.15715</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105002</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105431</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105000</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105791</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.111066</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.117505</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>tcp_ports</name><value>10050,22</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.900239</name><description>Check Open TCP Ports</description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.103674</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.127244</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.114947</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105611</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.103922</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.813864</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.809154</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>scanned_with_feedtype</name><value>Greenbone Community Feed</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.103739</name><description>Host Scan End</description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.10954</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150631</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150633</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.117687</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.108306</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.100584</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.104512</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.810769</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.108164</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.806049</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.103746</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.11913</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>OS</name><value>Debian GNU/Linux 13</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105586</name><description>Operating System (OS) Detection (SSH Banner)</description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.103939</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150638</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.806048</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>cpe:/o:debian:debian_linux:13</name><value>general/tcp</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105937</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>ports</name><value>10050,22</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.900239</name><description>Check Open TCP Ports</description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150646</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105003</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.108587</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105345</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105434</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.902815</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.114696</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.114681</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.140103</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150640</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.117305</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.140133</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150632</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.112123</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.104635</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.117696</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150647</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>Services</name><value>22,tcp,ssh,Remote SSH server banner: SSH-2.0-OpenSSH_10.0p2 Debian-7+deb13u1
+Remote SSH supported authentication: password,publickey
+Remote SSH text/login banner: (not available)
+
+This is probably (a):
+
+- OpenSSH
+
+Concluded from remote connection attempt with credentials:
+
+Login:    OpenVASVT
+Password: OpenVASVT</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.10267</name><description>Service detection (1.3.6.1.4.1.25623.1.0.10267)</description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>Services</name><value>10050,tcp,tcpwrapped</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.66286</name><description>Service detection (1.3.6.1.4.1.25623.1.0.66286)</description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150643</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.108560</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.104511</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>SSH Protocol Algorithms Supported</name><value>cpe:/a:ietf:secure_shell_protocol</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105565</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.114946</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.117786</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.104510</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>best_os_cpe</name><value>cpe:/o:debian:debian_linux:13</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105586;</name><description>Operating System (OS) Detection (SSH Banner)</description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150644</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>App</name><value>cpe:/a:openbsd:openssh:10.0p2</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.108577</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105452</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.140001</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>best_os_txt</name><value>Debian GNU/Linux 13</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105586;</name><description>Operating System (OS) Detection (SSH Banner)</description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105597</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.145538</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.107069</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.117815</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>OS-Detection</name><value>cpe:/o:debian:debian_linux:13</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105937</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.11342</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>scanned_with_feedname</name><value>GCF</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.103739</name><description>Host Scan End</description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>scanned_with_feedversion</name><value>202603271709</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.103739</name><description>Host Scan End</description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105001</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.108729</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.100153</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150713</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.103247</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.11343</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>scanned_with_scanner</name><value>23.38.1</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.103739</name><description>Host Scan End</description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.108946</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>scanned_with_feedvendor</name><value>Greenbone AG</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.103739</name><description>Host Scan End</description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150635</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.117839</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.103503</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.103549</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>hostname_determination</name><value>127.0.0.1,,IP-address</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.108449</name><description>Hostname Determination Reporting</description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.10883</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.812051</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>cpe:/a:ietf:secure_shell_protocol</name><value>22/tcp</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105565</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150636</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150637</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105593</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150645</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105398</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.104869</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.140104</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.807574</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.103239</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.104634</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150634</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.802407</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.114680</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105512</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150641</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.117785</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>OS</name><value>cpe:/o:debian:debian_linux:13</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105586</name><description>Operating System (OS) Detection (SSH Banner)</description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.806052</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105004</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105278</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>cpe:/a:openbsd:openssh:10.0p2</name><value>22/tcp</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.108577</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150648</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105495</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.8103256</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.103937</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.10823</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105581</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.150642</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.105409</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.15405</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.806671</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.103064</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.813888</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.118572</name><description></description></source><extra></extra></detail><detail>
+      
+      
+      
+      
+    <name>EXIT_CODE</name><value>EXIT_NOTVULN</value><source>
+        
+        
+        
+      <type>nvt</type><name>1.3.6.1.4.1.25623.1.0.902488</name><description></description></source><extra></extra></detail></host><tls_certificates></tls_certificates><scan_end>2026-03-29T21:58:50Z</scan_end><errors>
+    
+  <count>0</count></errors><report_format></report_format></report></report>
