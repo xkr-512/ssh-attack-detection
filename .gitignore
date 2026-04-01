@@ -1,0 +1,21 @@
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+
+# Archives
+*.zip
+*.7z
+*.tar
+*.gz
+
+# Logs generated locally
+*.tmp
+*.bak
