@@ -1,0 +1,7 @@
+Agents enrolled in Wazuh:
+- 001 linux-target
+- 002 windows-endpoint
+
+Expected status during validation:
+- linux-target: active
+- windows-endpoint: active

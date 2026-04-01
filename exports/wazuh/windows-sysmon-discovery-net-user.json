@@ -1,0 +1,110 @@
+{
+  "_index": "wazuh-alerts-4.x-2026.03.27",
+  "_id": "ylGrMJ0Bz6DCVAR1TI3i",
+  "_version": 1,
+  "_score": null,
+  "_source": {
+    "input": {
+      "type": "log"
+    },
+    "agent": {
+      "ip": "192.168.175.40",
+      "name": "windows-endpoint",
+      "id": "002"
+    },
+    "manager": {
+      "name": "wazuh-server"
+    },
+    "data": {
+      "win": {
+        "eventdata": {
+          "originalFileName": "net.exe",
+          "image": "C:\\\\Windows\\\\SysWOW64\\\\net.exe",
+          "product": "Microsoft® Windows® Operating System",
+          "parentProcessGuid": "{15208744-d3b4-69c6-bc01-000000001200}",
+          "description": "Net Command",
+          "logonGuid": "{15208744-d0db-69c6-e703-000000000000}",
+          "parentCommandLine": "\\\"C:\\\\Program Files (x86)\\\\ossec-agent\\\\wazuh-agent.exe\\\"",
+          "processGuid": "{15208744-d3c6-69c6-dc01-000000001200}",
+          "logonId": "0x3e7",
+          "parentProcessId": "5548",
+          "processId": "3972",
+          "currentDirectory": "C:\\\\Program Files (x86)\\\\ossec-agent\\\\",
+          "utcTime": "2026-03-27 19:00:22.747",
+          "hashes": "SHA256=E7A3A04DB13F7D5E65DB45DBED99B80C9AD9907BEEBA3416E2E5428E1EFB791E",
+          "parentImage": "C:\\\\Program Files (x86)\\\\ossec-agent\\\\wazuh-agent.exe",
+          "company": "Microsoft Corporation",
+          "commandLine": "net user",
+          "integrityLevel": "System",
+          "fileVersion": "10.0.26100.7019 (WinBuild.160101.0800)",
+          "user": "AUTORITE NT\\\\Système",
+          "terminalSessionId": "0",
+          "parentUser": "AUTORITE NT\\\\Système"
+        },
+        "system": {
+          "eventID": "1",
+          "keywords": "0x8000000000000000",
+          "providerGuid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+          "level": "4",
+          "channel": "Microsoft-Windows-Sysmon/Operational",
+          "opcode": "0",
+          "message": "\"Création de processus :\r\nNom de la règle : -\r\nHeure UTC : 2026-03-27 19:00:22.747\r\nGuid de processus : {15208744-d3c6-69c6-dc01-000000001200}\r\nID de processus : 3972\r\nImage : C:\\Windows\\SysWOW64\\net.exe\r\nVersion de fichier : 10.0.26100.7019 (WinBuild.160101.0800)\r\nDescription : Net Command\r\nProduit : Microsoft® Windows® Operating System\r\nEntreprise : Microsoft Corporation\r\nNom du fichier d’origine : net.exe\r\nLigne de commande : net user\r\nRépertoire actuel : C:\\Program Files (x86)\\ossec-agent\\\r\nUtilisateur : AUTORITE NT\\Système\r\nGuid de connexion : {15208744-d0db-69c6-e703-000000000000}\r\nID de connexion : 0x3E7\r\nID de session terminal : 0\r\nNiveau d’intégrité : System\r\nHachages : SHA256=E7A3A04DB13F7D5E65DB45DBED99B80C9AD9907BEEBA3416E2E5428E1EFB791E\r\nGuid de processus parent : {15208744-d3b4-69c6-bc01-000000001200}\r\nID de processus parent : 5548\r\nImage parent : C:\\Program Files (x86)\\ossec-agent\\wazuh-agent.exe\r\nLigne de commande parent : \"C:\\Program Files (x86)\\ossec-agent\\wazuh-agent.exe\"\r\nUtilisateur parent : AUTORITE NT\\Système\"",
+          "version": "5",
+          "systemTime": "2026-03-27T19:00:22.7503577Z",
+          "eventRecordID": "194",
+          "threadID": "3148",
+          "computer": "windows-endpoint",
+          "task": "1",
+          "processID": "4016",
+          "severityValue": "INFORMATION",
+          "providerName": "Microsoft-Windows-Sysmon"
+        }
+      }
+    },
+    "rule": {
+      "firedtimes": 3,
+      "mail": false,
+      "level": 3,
+      "description": "Discovery activity executed",
+      "groups": [
+        "sysmon",
+        "sysmon_eid1_detections",
+        "windows"
+      ],
+      "mitre": {
+        "technique": [
+          "Account Discovery"
+        ],
+        "id": [
+          "T1087"
+        ],
+        "tactic": [
+          "Discovery"
+        ]
+      },
+      "id": "92031"
+    },
+    "location": "EventChannel",
+    "decoder": {
+      "name": "windows_eventchannel"
+    },
+    "id": "1774638023.3636645",
+    "timestamp": "2026-03-27T19:00:23.987+0000"
+  },
+  "fields": {
+    "timestamp": [
+      "2026-03-27T19:00:23.987Z"
+    ]
+  },
+  "highlight": {
+    "agent.name": [
+      "@opensearch-dashboards-highlighted-field@windows-endpoint@/opensearch-dashboards-highlighted-field@"
+    ],
+    "rule.description": [
+      "@opensearch-dashboards-highlighted-field@Discovery activity executed@/opensearch-dashboards-highlighted-field@"
+    ]
+  },
+  "sort": [
+    1774638023987
+  ]
+}
