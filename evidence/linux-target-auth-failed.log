@@ -1,0 +1,9 @@
+2026-03-30T01:23:00.666144+02:00 linux-target sshd-session[2483]: Failed password for audituser from 192.168.175.20 port 50178 ssh2
+2026-03-30T01:29:13.473699+02:00 linux-target sshd-session[2521]: Failed password for audituser from 192.168.175.20 port 39236 ssh2
+2026-03-30T01:29:16.485398+02:00 linux-target sshd-session[2524]: Failed password for audituser from 192.168.175.20 port 39246 ssh2
+2026-03-30T01:29:20.648100+02:00 linux-target sshd-session[2528]: Failed password for audituser from 192.168.175.20 port 38632 ssh2
+2026-03-30T01:29:22.615905+02:00 linux-target sshd-session[2531]: Failed password for audituser from 192.168.175.20 port 38646 ssh2
+2026-03-30T01:29:26.405129+02:00 linux-target sshd-session[2534]: Failed password for audituser from 192.168.175.20 port 38652 ssh2
+2026-03-30T01:29:30.361241+02:00 linux-target sshd-session[2537]: Failed password for audituser from 192.168.175.20 port 38666 ssh2
+2026-03-30T01:29:34.680730+02:00 linux-target sshd-session[2540]: Failed password for audituser from 192.168.175.20 port 35162 ssh2
+2026-03-30T01:29:37.227789+02:00 linux-target sshd-session[2543]: Failed password for audituser from 192.168.175.20 port 35168 ssh2
